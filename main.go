@@ -22,11 +22,8 @@ func main() {
 	mux.HandleFunc("GET /v1/phone-numbers", phoneSvc.PhoneLookupHandler())
 
 	server := &http.Server{
-		Addr:         ":8080",
-		Handler:      mux,
-		ReadTimeout:  15 * time.Second,
-		WriteTimeout: 15 * time.Second,
-		IdleTimeout:  60 * time.Second,
+		Addr:    ":8080",
+		Handler: mux,
 	}
 
 	// Channel to listen for interrupt signals

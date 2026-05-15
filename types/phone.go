@@ -1,7 +1,6 @@
 package types
 
 import (
-	"regexp"
 	"strings"
 )
 
@@ -50,7 +49,7 @@ func (r *PhoneLookupRequest) Validate() (*ErrorResponse, error) {
 		}, nil
 	}
 
-	if r.CountryCode != "" && !isValidISO3166Alpha2(r.CountryCode) {
+	if r.CountryCode != "" && !isValidCountryCode(r.CountryCode) {
 		return &ErrorResponse{
 			Error: map[string]interface{}{
 				"countryCode": "invalid ISO 3166-1 alpha-2 format",
@@ -109,14 +108,18 @@ func isValidPhoneFormat(phoneNumber string) bool {
 	return true
 }
 
-// isValidISO3166Alpha2 checks if country code is valid ISO 3166-1 alpha-2
-func isValidISO3166Alpha2(code string) bool {
+// isValidCountryCode checks if country code is valid ISO 3166-1 alpha-2
+func isValidCountryCode(code string) bool {
 	if len(code) != 2 {
 		return false
 	}
 
-	matched, _ := regexp.MatchString(`^[A-Z]{2}$`, code)
-	return matched
+	for _, ch := range code {
+		if ch < 'A' || ch > 'Z' {
+			return false
+		}
+	}
+	return true
 }
 
 // NormalizePhoneNumber removes spaces and leading +
