@@ -26,7 +26,7 @@ There are a few things to be done differently to take this app to the next level
 
 Replace special case +1 logic with a comprehensive lookup:
 
-```go
+``` go
 var countryCodes = map[string]string{
     "1":   "US",
     "1":   "CA",  // Multiple countries share codes
@@ -35,7 +35,8 @@ var countryCodes = map[string]string{
     "52":  "MX",
     "54":  "AR",
     // ... all 150+ codes
-}```
+}
+```
 
 2. **Caching Layer**: Add caching for frequently looked-up numbers to reduce latency and improve throughput - only if we have an action external validation api to call , or an external database otherwise caching does not make sense.
 3. **Rate Limiting**: Implement rate limiting to prevent abuse and ensure service availability
