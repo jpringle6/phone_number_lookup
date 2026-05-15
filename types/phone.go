@@ -88,7 +88,7 @@ func isValidPhoneFormat(phoneNumber string) bool {
 	// Remove all spaces to check total digit count
 	digitsOnly := strings.ReplaceAll(cleaned, " ", "")
 	if len(digitsOnly) < 10 {
-		return false // Too short - less than 7 digits total
+		return false // Too short - less than 10 digits total
 	}
 
 	// Validate space placement - each space-separated part should be digits only

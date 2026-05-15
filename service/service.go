@@ -12,6 +12,7 @@ import (
 // PhoneService handles phone number lookup operations
 type PhoneService struct {
 	// In production, could inject database, cache, external API client, etc.
+	// logger metrics could also be added here
 }
 
 // NewPhoneService creates a new PhoneService instance
