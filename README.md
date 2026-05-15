@@ -35,8 +35,8 @@ var countryCodes = map[string]string{
     "52":  "MX",
     "54":  "AR",
     // ... all 150+ codes
-}```
-
+}
+```
 2. **Caching Layer**: Add caching for frequently looked-up numbers to reduce latency and improve throughput - only if we have an action external validation api to call , or an external database otherwise caching does not make sense.
 3. **Rate Limiting**: Implement rate limiting to prevent abuse and ensure service availability
 4. **Unit Tests**: Expand test coverage with comprehensive unit tests for edge cases and error handling scenarios
