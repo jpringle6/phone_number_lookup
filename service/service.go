@@ -80,8 +80,8 @@ func (s *PhoneService) LookupPhoneNumber(req *types.PhoneLookupRequest) (*types.
 	return response, nil
 }
 
-// NewPhoneLookupHandler creates a handler for phone lookup
-func (s *PhoneService) NewPhoneLookupHandler() http.HandlerFunc {
+// PhoneLookupHandler creates a handler for phone lookup
+func (s *PhoneService) PhoneLookupHandler() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
 

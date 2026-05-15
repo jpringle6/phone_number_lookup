@@ -19,7 +19,7 @@ func main() {
 
 	// Create HTTP server
 	mux := http.NewServeMux()
-	mux.HandleFunc("GET /v1/phone-numbers", phoneSvc.NewPhoneLookupHandler())
+	mux.HandleFunc("GET /v1/phone-numbers", phoneSvc.PhoneLookupHandler())
 
 	server := &http.Server{
 		Addr:         ":8080",
